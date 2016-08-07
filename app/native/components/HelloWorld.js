@@ -7,17 +7,15 @@ import React, {
 } from 'react-native';
 
 export default class HelloWorld extends Component {
+
   render() {
-    const { onPress, color } = this.props;
-    const style = StyleSheet.create({
-      helloWorld: {
-        color: color,
-        textAlign: 'center',
-      }
-    });
+    const { onPress, code } = this.props;
+
     return (
-      <View>
-        <Text onPress={onPress} style={style.helloWorld}>Hello World</Text>
+      <View style={{flex: 0.5}}>
+        <Text onPress={onPress} style={{color: 'white', textAlign: 'center', fontSize: 20, }}>
+          {code}
+        </Text>
       </View>
     );
   }
@@ -25,5 +23,4 @@ export default class HelloWorld extends Component {
 
 HelloWorld.propTypes = {
   onPress: PropTypes.func.isRequired,
-  color: PropTypes.string.isRequired,
 }

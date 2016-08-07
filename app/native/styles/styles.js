@@ -5,5 +5,6 @@ export const appStyle = StyleSheet.create({
     flexDirection: 'column',
     flex: 1,
     justifyContent: 'center',
+    backgroundColor: 'black'
   },
 });

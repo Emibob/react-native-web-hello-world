@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 // dumb components
 import Header     from '../components/Header';
 import HelloWorld from '../components/HelloWorld';
+import Gif from '../components/Gif';
 // actions
 import {
   toggleColor,
+  toggleGif,
 } from '../../actions/actions';
 
 /** The app entry point */
@@ -17,6 +19,9 @@ class ReactNativeWebHelloWorld extends Component {
     return (
       <div className="react-native-web">
         <Header />
+        <Gif 
+          onClick={() => dispatch(toggleGif())}
+        />
         <HelloWorld
           onClick={() => dispatch(toggleColor())}
           color={color}

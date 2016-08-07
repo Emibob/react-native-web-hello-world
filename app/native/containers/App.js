@@ -4,23 +4,36 @@ import { appStyle } from '../styles/styles';
 // dumb components
 import Header     from '../components/Header';
 import HelloWorld from '../components/HelloWorld';
+import Gif from '../components/Gif';
 // actions
 import {
   toggleColor,
+  toggleGif,
+  getSecretCode,
 } from '../../actions/actions';
 
 /** The app entry point */
 class ReactNativeWebHelloWorld extends Component {
+  
+  componentWillMount() {
+    this.props.dispatch(getSecretCode());
+  }
+
   render() {
     // injected by connect call
-    const {dispatch, color, data} = this.props;
+    const {dispatch, color, data, gifUrl, code, } = this.props;
 
     return (
       <View style={appStyle.reactNativeWeb}>
         <Header />
+        <Gif 
+          onPress={() => dispatch(toggleGif())}
+          url={gifUrl}
+        />
         <HelloWorld
           onPress={() => dispatch(toggleColor())}
           color={color}
+          code={code}
         />
       </View>
     );
