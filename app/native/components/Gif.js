@@ -19,7 +19,7 @@ export default class HelloWorld extends Component {
         </TouchableHighlight>
         <Image 
       		source={{uri: url}}
-      		style={{width: 400, height: 400, borderWidth: 3, borderColor: 'pink'}}
+      		style={{width: 400, height: 400, borderWidth: 3, borderColor: 'blue'}}
       	/>
       </View>
     );

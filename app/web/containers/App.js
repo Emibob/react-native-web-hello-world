@@ -8,23 +8,30 @@ import Gif from '../components/Gif';
 import {
   toggleColor,
   toggleGif,
+  getSecretCode,
 } from '../../actions/actions';
 
 /** The app entry point */
 class ReactNativeWebHelloWorld extends Component {
+
+  componentWillMount() {
+    this.props.dispatch(getSecretCode());
+  }
+
   render() {
     // injected by connect call
-    const { dispatch, color, data } = this.props;
+    const { dispatch, color, data, gifUrl, code, } = this.props;
 
     return (
       <div className="react-native-web">
-        <Header />
         <Gif 
           onClick={() => dispatch(toggleGif())}
+          url={gifUrl}
         />
         <HelloWorld
           onClick={() => dispatch(toggleColor())}
           color={color}
+          code={code}
         />
       </div>
     );

@@ -4,13 +4,14 @@ export default class HelloWorld extends Component {
   render() {
     const { onClick, url, color } = this.props;
     return (
-      <div className="hello-world" onClick={onClick} style={{color: color}}>Get New Gif</div>
-      <img src=url />
+    <div>
+      <div onClick={onClick} style={{color: color}}>Get New Gif</div>
+      <img style={{border: '5px solid green', width: 400, height: 400}} src={url} />
+     </div>
     );
   }
 }
 
 HelloWorld.propTypes = {
   onClick: PropTypes.func.isRequired,
-  color: PropTypes.string.isRequired,
 }
